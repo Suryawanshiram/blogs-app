@@ -20,7 +20,7 @@ async function getData(userId: string) {
 const DashboardRoute = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  const data = await getData(user.id);
+  const data = await getData(user?.id);
 
   return (
     <div>
@@ -33,7 +33,7 @@ const DashboardRoute = async () => {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {data.map((item) => (
-          <BlogPostCard data={item} key={item.id} />
+          <BlogPostCard data={item} key={item?.id} />
         ))}
       </div>
     </div>
